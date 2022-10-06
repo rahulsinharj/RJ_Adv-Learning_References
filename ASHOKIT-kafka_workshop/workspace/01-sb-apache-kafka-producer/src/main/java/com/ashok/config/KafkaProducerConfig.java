@@ -18,11 +18,7 @@ import com.ashok.util.KafkaConstants;
 @Configuration
 public class KafkaProducerConfig {
 	
-	/**
-	 * This method is used to Kafka Producer Config details
-	 * @return
-	 */
-
+	/**		This method is used to Kafka Producer Config details : making "Producer_Factory"	*/
 	@Bean
 	public ProducerFactory<String, Customer> producerFactory() {
 		Map<String, Object> configProps = new HashMap<String, Object>();
@@ -32,10 +28,7 @@ public class KafkaProducerConfig {
 		return new DefaultKafkaProducerFactory(configProps);
 	}
 
-	/**
-	 * This method is used to create KafkaTemplate bean obj
-	 * @return
-	 */
+	/**		This method is used to create KafkaTemplate bean obj	*/
 	@Bean(name = "kafkaTemplate")
 	public KafkaTemplate<String, Customer> kafkaTemplate() {
 		return new KafkaTemplate<>(producerFactory());

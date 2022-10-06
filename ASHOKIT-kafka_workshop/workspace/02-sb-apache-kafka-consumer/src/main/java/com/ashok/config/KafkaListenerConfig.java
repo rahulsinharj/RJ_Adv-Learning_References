@@ -17,14 +17,10 @@ import com.ashok.model.Customer;
 import com.ashok.util.KafkaConstants;
 
 @Configuration
-@EnableKafka
+@EnableKafka								// Annotation to enable KAFKA Listener here
 public class KafkaListenerConfig {
 
-	/**
-	 * This method is used to Kafka Consumer Config details
-	 * 
-	 * @return
-	 */
+	/**		Below method is used provide Kafka Consumer Config details : for making this "Consumer_Factory"	*/
 	@Bean
 	public ConsumerFactory<String, Customer> consumerFactory() {
 		Map<String, Object> props = new HashMap();
@@ -36,6 +32,7 @@ public class KafkaListenerConfig {
 		return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), new JsonDeserializer<>(Customer.class));
 	}
 
+/**		Below method is used to inject the above "Consumer_Factory" with the "Concurrent_Kafka_Listener_Container_Factory"	*/
 	@Bean
 	public ConcurrentKafkaListenerContainerFactory<String, Customer> kafkaListenerContainerFactory() {
 		ConcurrentKafkaListenerContainerFactory<String, Customer> factory = new ConcurrentKafkaListenerContainerFactory<String, Customer>();

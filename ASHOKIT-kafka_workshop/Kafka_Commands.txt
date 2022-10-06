@@ -48,6 +48,15 @@ C:\kafka-3.2.1\bin\windows>
 ✔	kafka-topics.bat --list --bootstrap-server localhost:9092
 ❌	kafka-topics.bat --list --zookeeper localhost:2181	  
 
+
+--------------
+Produce a message :
+	kafka-console-producer.bat --broker-list localhost:9092 --topic javatechie
+
+Consume a message :
+	kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic javatechie
+
+
 ===================
 [replication-factor 1] :	means how many copies of message you want to create, because whenever some subscriber subscribe to that message , then that message will be deleted from the topic. So as many replication-factor we have to create (means how many copies of message you want to create) as per how many subscriber we have associated. 
  If you are dealing with multiple subcribers then you will create multiple messages. Each message for 1 subscriber.
