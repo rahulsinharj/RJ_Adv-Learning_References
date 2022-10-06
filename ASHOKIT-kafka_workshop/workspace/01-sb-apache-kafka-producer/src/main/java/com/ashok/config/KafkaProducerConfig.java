@@ -16,7 +16,7 @@ import com.ashok.model.Customer;
 import com.ashok.util.KafkaConstants;
 
 @Configuration
-public class KafkaProduceConfig {
+public class KafkaProducerConfig {
 	
 	/**
 	 * This method is used to Kafka Producer Config details

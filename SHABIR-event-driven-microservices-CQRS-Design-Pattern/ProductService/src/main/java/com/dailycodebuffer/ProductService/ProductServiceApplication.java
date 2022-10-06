@@ -14,10 +14,10 @@ public class ProductServiceApplication {
 	}
 
 	@Autowired
-	public void configure(EventProcessingConfigurer configurer) {
-		configurer.registerListenerInvocationErrorHandler(
-				"product",
-				configuration -> new ProductServiceEventsErrorHandler()
-		);
+	public void configure(EventProcessingConfigurer configurer)
+	{
+		configurer.registerListenerInvocationErrorHandler("product",
+				configuration -> new ProductServiceEventsErrorHandler() );
+
 	}
 }
