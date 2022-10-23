@@ -1,7 +1,14 @@
-Apache Kafka is a distributed streaming platform
+APACHE KAFKA is a distributed streaming platform.
+Apache Kafka is used to process real time data feeds with high throughput and low latency.
+--------------------------------
+What role does ZOOKEEPER play in a cluster of Kafka?  - Apache ZooKeeper acts as a distributed, open-source configuration and synchronization service, along with being a naming registry for distributed applications. It keeps track of the status of the Kafka cluster nodes, as well as of Kafka topics, partitions, etc.
+--------------------------------
+A Kafka BROKER receives messages from producers and stores them on disk keyed by unique offset. A Kafka broker allows consumers to fetch messages by a topic, partition.
+--------------------------------
+A Kafka CLUSTER consists of one or more servers (Kafka brokers).
+Each Broker can have one or more Topics. Kafka topics are divided into a number of partitions.
 
-Apache Kafka is used to process real time data feeds with high throughput and low latency
-
+===========================================================================
 Ex : flights data, sensors data, stocks data, news data etc....
 
 Kafka works based on Publisher and Subscriber model
@@ -25,21 +32,21 @@ Streams API
 
 ======================================
 server.properties :
-	log.dirs=C:/kafka-3.2.1/kafka-logs
+	log.dirs=C:/apache-kafka/kafka-logs
 
 zookeeper.properties
 	# the directory where the snapshot is stored.
-	dataDir=C:/kafka-3.2.1/zookeeper-data
+	dataDir=C:/apache-kafka/zookeeper-data
 
 
 ---------------------------------------------------------------
 Spring Boot + Apache Kafka Application
 =======================================
 
-cd C:\kafka-3.2.1\bin\windows 
+cd C:\apache-kafka\bin\windows 
 
-C:\kafka-3.2.1\bin\windows> 		zookeeper-server-start.bat ..\..\config\zookeeper.properties
-C:\kafka-3.2.1\bin\windows>		kafka-server-start.bat ..\..\config\server.properties
+C:\apache-kafka\bin\windows> 		zookeeper-server-start.bat ..\..\config\zookeeper.properties
+C:\apache-kafka\bin\windows>		kafka-server-start.bat ..\..\config\server.properties
 
 C:\kafka-3.2.1\bin\windows>
 ✔	kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic demoTopic
@@ -50,26 +57,25 @@ C:\kafka-3.2.1\bin\windows>
 
 
 --------------
-Produce a message :
-	kafka-console-producer.bat --broker-list localhost:9092 --topic javatechie
-
 Consume a message :
 	kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic javatechie
+	
+Produce a message :
+	kafka-console-producer.bat --broker-list localhost:9092 --topic javatechie
 
 
 ===================
 [replication-factor 1] :	means how many copies of message you want to create, because whenever some subscriber subscribe to that message , then that message will be deleted from the topic. So as many replication-factor we have to create (means how many copies of message you want to create) as per how many subscriber we have associated. 
  If you are dealing with multiple subcribers then you will create multiple messages. Each message for 1 subscriber.
 
-
 ----------------------------------------------------------------
-Step-1 : Download Zookeeper from below URL
+Step-1 : Download Zookeeper from below URL :
 
-   URL : http://mirrors.estointernet.in/apache/zookeeper/stable/
+		https://zookeeper.apache.org/releases.html				>> 			Apache ZooKeeper 3.7.1 	(latest stable release)
 
-Step-2 : Download Apache Kafka from below URL
+Step-2 : Download Apache Kafka from below URL :
 
-   URL : http://mirrors.estointernet.in/apache/kafka/
+		https://kafka.apache.org/downloads							>>			Scala 2.13  - kafka_2.13-3.3.1.tgz 	(The current stable version is 3.3.1)
 
 Step-3 : Set Path to ZOOKEEPER in Environment variables upto bin folder
 
